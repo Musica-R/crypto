@@ -84,6 +84,7 @@ export default function Token() {
             </Reveal>
           ))}
         </div>
+        <br />
         <div className="shead mt2"><Reveal><span className="tag">{tokenDetails.tag}</span></Reveal></div>
         <div className="grid2">
           {tokenDetails.charts.map((c, i) => <Reveal key={c.title} delay={i * 300} dir="zoom"><Donut chart={c} colors={colors} /></Reveal>)}
