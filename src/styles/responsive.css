@@ -1,0 +1,423 @@
+/* 1200px: tighten the desktop nav so it never overflows the pill */
+@media (max-width: 1200px) and (min-width: 1025px) {
+  .nav a {
+    padding: 10px 12px;
+  }
+}
+
+/* 1024px: tablet landscape */
+@media (max-width: 1024px) {
+  section {
+    padding: 80px 0;
+  }
+
+  .burger {
+    display: grid;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px;
+    border-radius: 28px;
+    background: #fff;
+    box-shadow: 0 20px 50px rgba(2, 30, 20, .25);
+    max-height: calc(100dvh - 110px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
+    /* hidden state, also removed from the tab order */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity .3s, transform .3s, visibility 0s .3s;
+  }
+
+  .nav.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: opacity .3s, transform .3s, visibility 0s;
+  }
+
+  .nav a {
+    padding: 12px 14px;
+  }
+
+  .hero-grid,
+  .split,
+  .sale,
+  .contact {
+    gap: 40px;
+  }
+
+  .faq {
+    grid-template-columns: 280px 1fr;
+  }
+
+  .foot-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .cs {
+    --gap: 20px;
+  }
+
+  /* Roadmap turns into a vertical road */
+  .rm {
+    display: block;
+    max-width: 640px;
+    margin: 0 auto;
+    padding-left: 8px;
+  }
+
+  .rm::before {
+    content: "";
+    position: absolute;
+    left: 38px;
+    top: 10px;
+    bottom: 10px;
+    width: 14px;
+    border-radius: 99px;
+    background: #3a4a43;
+  }
+
+  .rm-road {
+    display: none;
+  }
+
+  .rm-item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 0 0 36px;
+    text-align: left;
+  }
+
+  .rm-item .rm-pin {
+    order: -1;
+    flex: none;
+    width: 60px;
+    height: 60px;
+  }
+
+  .rm-item .rm-pin span,
+  .rm-item.high .rm-pin span,
+  .rm-item.low .rm-pin span {
+    top: 30px;
+  }
+
+  .rm-item .rm-pin em,
+  .rm-item.high .rm-pin em,
+  .rm-item.low .rm-pin em {
+    top: 30px;
+  }
+
+  .rm-item.high .rm-text,
+  .rm-item.low .rm-text {
+    padding: 4px 0 0;
+    align-self: auto;
+  }
+}
+
+/* 768px: tablet portrait */
+@media (max-width: 768px) {
+  section {
+    padding: 64px 0;
+  }
+
+  .hero {
+    padding: 120px 0 110px;
+  }
+
+  .hero-art .lottie {
+    margin-inline: auto;
+    max-width: 420px;
+  }
+
+  .features {
+    padding-bottom: 48px;
+  }
+
+  .hero-grid,
+  .split,
+  .sale,
+  .contact,
+  .faq,
+  .team-top,
+  .profit .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split.rev .pic {
+    order: -1;
+  }
+
+  .hero p {
+    max-width: none;
+  }
+
+  .cards3,
+  .grid3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* header "Buy token" is hidden here, so it appears inside the menu */
+  .hide-sm {
+    display: none;
+  }
+
+  .nav .nav-cta {
+    display: inline-flex;
+    margin-top: 8px;
+    color: var(--on-brand);
+  }
+
+  .nav .nav-cta:hover {
+    background: var(--brand2);
+  }
+
+  .pill {
+    padding-left: 14px;
+  }
+
+  /* shorter slide-in distance so nothing sticks out sideways */
+  .reveal.left:not(.in) {
+    transform: translateX(-28px);
+  }
+
+  .reveal.right:not(.in) {
+    transform: translateX(28px);
+  }
+
+  .team-top {
+    gap: 24px;
+  }
+
+  .team-title {
+    text-align: center;
+  }
+
+  .member.big {
+    margin: 0 auto;
+  }
+
+  .team-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .faq-side {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .faq-side h4,
+  .help {
+    grid-column: 1 / -1;
+  }
+
+  .cat {
+    margin: 0;
+  }
+
+  .shead {
+    margin-bottom: 40px;
+  }
+
+  .wa-label {
+    display: none;
+  }
+
+  .wa {
+    width: 58px;
+    height: 58px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* 420px: large phones */
+@media (max-width: 420px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .pill {
+    width: calc(100% - 24px);
+    padding: 8px 10px 8px 14px;
+  }
+
+  section {
+    padding: 52px 0;
+  }
+
+  .cards3,
+  .grid3,
+  .grid2,
+  .team-row,
+  .row2,
+  .faq-side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .btns .btn {
+    flex: 1 1 100%;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .count {
+    gap: 6px;
+  }
+
+  .count b {
+    font-size: 1.3rem;
+  }
+
+  .info li {
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .info li b {
+    text-align: left;
+  }
+
+  .buy {
+    flex-direction: column;
+  }
+
+  .buy select {
+    width: 100%;
+  }
+
+  .acc > button {
+    padding: 16px 18px;
+    font-size: .95rem;
+  }
+
+  .acc-body p {
+    padding: 0 18px;
+  }
+
+  .foot-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  /* newsletter stacks here (was 340px) so it never overflows */
+  .news {
+    flex-direction: column;
+  }
+
+  .news .btn {
+    width: 100%;
+  }
+
+  .foot-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foot-nav {
+    justify-content: center;
+  }
+
+  .rm::before {
+    left: 30px;
+  }
+
+  .rm-item {
+    gap: 16px;
+  }
+
+  .wa {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .cs-ctrl {
+    margin-top: 28px;
+  }
+
+  .art-card.download .lottie {
+    padding: 14px;
+  }
+}
+
+/* 340px: small phones */
+@media (max-width: 340px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  h2 {
+    font-size: 1.45rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .logo i {
+    width: 32px;
+    height: 32px;
+  }
+
+  .btn {
+    padding: 12px 18px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .count b {
+    font-size: 1.1rem;
+  }
+
+  .count span {
+    font-size: .68rem;
+  }
+
+  .rm-item .rm-pin {
+    width: 50px;
+  }
+
+  .rm-pin span {
+    width: 50px;
+    height: 50px;
+    border-width: 4px;
+  }
+
+  .rm::before {
+    left: 25px;
+    width: 10px;
+  }
+
+  .modal-box {
+    padding: 22px;
+  }
+
+  .plate {
+    left: 4%;
+    right: 4%;
+    padding: 10px 12px;
+  }
+}
